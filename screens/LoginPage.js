@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet} from "react-native";
+import {Text, View, StyleSheet, TouchableOpacity} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
 import {TextInput} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
@@ -30,8 +30,22 @@ export default function Login() {
                 />
                 <TextInput
                     label="Password"
+                    secureTextEntry={true}
                     leading={props => <Icon name="lock" {...props} />}
                 />
+
+                <View style={{width:'100%',alignItems:'flex-end'}}>
+                    <TouchableOpacity style={styles.btn}>
+                        <LinearGradient
+                            colors={['#e67e22', '#d35400']}
+                            style={styles.btnBg}
+                        >
+                            <Text style={styles.btnText}>Login</Text>
+                        </LinearGradient>
+
+                    </TouchableOpacity>
+                </View>
+
 
             </View>
             <View style={styles.bottom}></View>
@@ -49,15 +63,11 @@ const styles = StyleSheet.create({
     },
     middle: {
         flex: 1,
-        borderWidth: 1,
-        borderColor: 'red',
         paddingLeft:10,
         paddingRight:10
     },
     bottom: {
         height: 50,
-        borderWidth: 1,
-        borderColor: 'red'
     },
     v1: {
         width: 150,
@@ -89,6 +99,20 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
     },
+    btnBg: {
+        flex: 1,
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
     headerText: {
         fontWeight: 'bold',
         fontSize: 50
@@ -96,5 +120,12 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'normal',
         fontSize: 20
+    },
+    btn:{
+        width:100,
+        height:30
+    },
+    btnText:{
+        color:'#FFF'
     }
 })
