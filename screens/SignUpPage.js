@@ -1,12 +1,12 @@
-import {Text, View, StyleSheet, TouchableOpacity} from "react-native";
+import {Text, View, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
 import {TextInput} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-export default function SignUpPage() {
+export default function SignUpPage({navigation}) {
     return (
         <View style={styles.container}>
-            <View style={styles.top}>
+            <View style={{position:'relative'}}>
                 <View style={styles.v2}>
                     <LinearGradient
                         colors={['#e67e22', '#d35400']}
@@ -50,10 +50,21 @@ export default function SignUpPage() {
                     </TouchableOpacity>
                 </View>
 
+                <ScrollView horizontal={true} style={{marginTop:20}}>
+                    <TouchableOpacity style={styles.btnSocial}>
+                        <Text style={styles.btnSocialText}>Facebook</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnSocial}>
+                        <Text style={styles.btnSocialText}>Google</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnSocial}>
+                        <Text style={styles.btnSocialText}>LinkedIn</Text>
+                    </TouchableOpacity>
+                </ScrollView>
 
             </View>
             <View style={styles.bottom}>
-               <Text style={{}}>Already have an Account? <Text style={{color:'orange'}}>Log in</Text></Text>
+               <Text style={{}}>Already have an Account? <Text style={{color:'orange'}}  onPress={()=>navigation.navigate("Login")}>Log in</Text></Text>
             </View>
         </View>
     )
@@ -63,6 +74,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'stretch',
+        position:'relative'
     },
     top: {
         height: 150,
@@ -136,5 +148,17 @@ const styles = StyleSheet.create({
     },
     btnText:{
         color:'#FFF'
+    },
+    btnSocial:{
+        width:100,
+        height:40,
+        borderRadius:50,
+        backgroundColor:'#e74c3c',
+        justifyContent:'center',
+        alignItems:'center',
+        marginRight:5
+    },
+    btnSocialText:{
+        color:'white'
     }
 })

@@ -3,7 +3,7 @@ import {LinearGradient} from "expo-linear-gradient";
 import {TextInput} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-export default function Login() {
+export default function Login({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
@@ -49,7 +49,7 @@ export default function Login() {
 
             </View>
             <View style={styles.bottom}>
-               <Text style={{}}>Don't have an Account? <Text style={{color:'orange'}}>Sign Up</Text></Text>
+               <Text style={{}}>Don't have an Account? <Text style={{color:'orange'}} onPress={()=>navigation.navigate("Signup")}>Sign Up</Text></Text>
             </View>
         </View>
     )
