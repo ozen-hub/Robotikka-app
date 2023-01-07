@@ -35,7 +35,7 @@ export default function Login({navigation}) {
                 />
 
                 <View style={{width:'100%',alignItems:'flex-end'}}>
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate("LandingPage")}>
                         <LinearGradient
                             colors={['#e67e22', '#d35400']}
                             style={styles.btnBg}
