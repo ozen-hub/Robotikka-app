@@ -11,13 +11,18 @@ export default function LandingPage({navigation}){
                 <View style={styles.contextInner}>
                     <View style={styles.dataInner}>
                         <ImageBackground source='https://img.freepik.com/free-psd/two-seater-gray-sofa-with-two-cushions-isolated_176382-98.jpg?w=826&t=st=1673107511~exp=1673108111~hmac=cde04bb71c230b21b2c9be826e18b30aded617259c978e0859dc6d656a9d9c94' style={styles.image}></ImageBackground>
+                        <Text style={styles.title}>two-seater gray sofa</Text>
+                        <Text style={styles.price}>2500 USD</Text>
                     </View>
                     <View style={styles.iconBox}></View>
                 </View>
                 <View style={styles.contextInner}>
                     <View style={styles.dataInner}>
                         <ImageBackground source='https://img.freepik.com/free-psd/two-seater-gray-sofa-with-two-cushions-isolated_176382-98.jpg?w=826&t=st=1673107511~exp=1673108111~hmac=cde04bb71c230b21b2c9be826e18b30aded617259c978e0859dc6d656a9d9c94' style={styles.image}></ImageBackground>
+                        <Text style={styles.title}>two-seater gray sofa</Text>
+                        <Text style={styles.price}>2500 USD</Text>
                     </View>
+
                     <View style={styles.iconBox}></View>
                 </View>
             </View>
@@ -93,5 +98,17 @@ const styles = StyleSheet.create({
     image:{
         width:'100%',
         height:80
+    },
+    title:{
+        color:'#2c3e50',
+        fontWeight:'bold',
+        fontSize:16,
+        padding:5
+    },
+    price:{
+        color:'#c0392b',
+        fontWeight:'bold',
+        fontSize:16,
+        padding:5
     }
 })
