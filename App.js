@@ -12,11 +12,11 @@ export default function App(){
     return(
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="LandingPage" component={LandingPage} options={{headerShown:true}}/>
-                <Stack.Screen name="DetailsPage" component={DetailsPage} options={{headerShown:false}}/>
                 <Stack.Screen name="Login" component={LoginPage} options={{headerShown:false}}/>
                 <Stack.Screen name="Signup" component={SignUpPage} options={{headerShown:false}}/>
-                <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown:false}}/>
+                <Stack.Screen name="LandingPage" component={LandingPage} options={{headerShown:true}}/>
+                <Stack.Screen name="DetailsPage" component={DetailsPage} options={{headerShown:true}}/>
+                <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown:true}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

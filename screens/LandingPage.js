@@ -13,7 +13,7 @@ export default function LandingPage({navigation}) {
             <Text style={styles.bestSellingText}>Best Selling</Text>
 
             <View style={styles.context}>
-                <View style={styles.contextInner}>
+                <View onTouchEnd={()=>{navigation.navigate('DetailsPage')}} style={styles.contextInner} >
                     <View style={styles.dataInner}>
                         <ImageBackground
                             source='https://img.freepik.com/free-psd/two-seater-gray-sofa-with-two-cushions-isolated_176382-98.jpg?w=826&t=st=1673107511~exp=1673108111~hmac=cde04bb71c230b21b2c9be826e18b30aded617259c978e0859dc6d656a9d9c94'
@@ -26,7 +26,7 @@ export default function LandingPage({navigation}) {
 
                     </View>
                 </View>
-                <View style={styles.contextInner}>
+                <View onTouchEnd={()=>{navigation.navigate('DetailsPage')}}  style={styles.contextInner}>
                     <View style={styles.dataInner}>
                         <ImageBackground
                             source='https://img.freepik.com/free-psd/two-seater-gray-sofa-with-two-cushions-isolated_176382-98.jpg?w=826&t=st=1673107511~exp=1673108111~hmac=cde04bb71c230b21b2c9be826e18b30aded617259c978e0859dc6d656a9d9c94'

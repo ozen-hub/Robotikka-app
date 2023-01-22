@@ -1,9 +1,37 @@
-import {Text, View, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
+import {useState} from "react";
+import {Text,TextInput, View, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
-import {TextInput} from "@react-native-material/core";
+//import {TextInput} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import axios from "axios";
 
 export default function SignUpPage({navigation}) {
+
+    let [email,setEmail]= useState('');
+    let [firstName,setFirstName]= useState('');
+    let [lastName,setLastName]= useState('');
+    let [password,setPassword]= useState('');
+
+    const signup=()=>{
+        axios({
+            method:'POST',
+            url:'http://localhost:8000/api/v1/users/visitor/register',
+            data:{
+                contactNumber:'',
+                firstName:'',
+                lastName:'',
+                email:'',
+                password:''
+            }
+        }
+
+        ).then(response=>{
+            // service:=== cookie
+        }, error=>{
+            console.log(error)
+        })
+    }
+
     return (
         <View style={styles.container}>
             <View style={{ width:'100%',height:200, overflow:'hidden', position:'absolute'}}>
@@ -25,21 +53,29 @@ export default function SignUpPage({navigation}) {
                 <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur </Text>
 
                 <TextInput
-                    label="Email"
-                    leading={props => <Icon name="account" {...props} />}
+                    style={styles.input}
+                    onChangeText={(text)=>{setEmail(text)}}
+                    placeholder="Email"
                 />
                 <TextInput
-                    label="Full Name"
-                    leading={props => <Icon name="account" {...props} />}
+                    style={styles.input}
+                    onChangeText={(text)=>{setFirstName(text)}}
+                    placeholder="First Name"
                 />
                 <TextInput
-                    label="Password"
+                    style={styles.input}
+                    onChangeText={(text)=>{setLastName(text)}}
+                    placeholder="Last Name"
+                />
+                <TextInput
+                    style={styles.input}
+                    onChangeText={(text)=>{setPassword(text)}}
+                    placeholder="Password"
                     secureTextEntry={true}
-                    leading={props => <Icon name="lock" {...props} />}
                 />
 
                 <View style={{width:'100%',alignItems:'flex-end'}}>
-                    <TouchableOpacity style={styles.btn}  onPress={()=>navigation.navigate("LandingPage")}>
+                    <TouchableOpacity style={styles.btn}  onPress={()=>signup()}>
                         <LinearGradient
                             colors={['#e67e22', '#d35400']}
                             style={styles.btnBg}
@@ -159,5 +195,13 @@ const styles = StyleSheet.create({
     },
     btnSocialText:{
         color:'white'
+    },
+    input:{
+        height:35,
+        borderWidth:1,
+        borderColor:'gray',
+        borderRadius:3,
+        marginBottom:12,
+        paddingLeft:4
     }
 })
