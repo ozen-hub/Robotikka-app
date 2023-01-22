@@ -18,15 +18,15 @@ export default function SignUpPage({navigation}) {
             url:'http://localhost:8000/api/v1/users/visitor/register',
             data:{
                 contactNumber:'',
-                firstName:'',
-                lastName:'',
-                email:'',
-                password:''
+                firstName:firstName,
+                lastName:lastName,
+                email:email,
+                password:password
             }
         }
 
         ).then(response=>{
-            // service:=== cookie
+            console.log(response)
         }, error=>{
             console.log(error)
         })
