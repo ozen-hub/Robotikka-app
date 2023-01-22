@@ -26,6 +26,7 @@ export default function SignUpPage({navigation}) {
         }
 
         ).then(response=>{
+            navigation.navigate('Verify');
             console.log(response)
         }, error=>{
             console.log(error)
